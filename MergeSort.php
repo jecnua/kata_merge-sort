@@ -21,13 +21,11 @@ class MergeSort {
             if (count($allElementInArrayOfOne) % 2 == 0 ){
                 for ($i = 0; $i < count($allElementInArrayOfOne); $i=$i+2){
                     $sorted[] = $this->merge_two_arrays_already_sorted($allElementInArrayOfOne[$i],$allElementInArrayOfOne[$i+1]);
-                    //print_r($sorted);
                 }
             }
             else {
-
                 for ($i = 0; $i < count($allElementInArrayOfOne); $i=$i+2){
-                    if (++$i >= count($allElementInArrayOfOne)) {
+                    if (($i + 1) >= count($allElementInArrayOfOne)) {
                         $sorted[] = $this->merge_two_arrays_already_sorted($allElementInArrayOfOne[$i],array());
                     }
                     else{
@@ -37,7 +35,7 @@ class MergeSort {
             }
             $allElementInArrayOfOne = $sorted;
         }
-        return $allElementInArrayOfOne;
+        return $allElementInArrayOfOne[0];
     }
 
     public function merge_two_arrays_already_sorted(array $first, array $second){
