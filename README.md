@@ -1,6 +1,8 @@
 KATA: Mergesort
 =========
 
+Source: http://en.wikipedia.org/wiki/Merge_sort
+
 Sweet spots
 -------
 

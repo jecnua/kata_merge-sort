@@ -8,6 +8,11 @@
 
 include_once 'MergeSort.php';
 
+function fast(\algorithm\MergeSort $alg,$data){
+    $result = $alg->merge_sort($data);
+    print_r($result);
+}
+
 $alg = new \algorithm\MergeSort();
-$result = $alg->merge_sort(array());
-print_r($result);
+fast($alg, [1,5,4,7,9,4,2]);
+fast($alg, [6]);
