@@ -9,4 +9,5 @@
 include_once 'MergeSort.php';
 
 $alg = new \algorithm\MergeSort();
-$alg->foo();
+$result = $alg->merge_sort(array());
+print_r($result);

@@ -11,8 +11,12 @@ namespace algorithm;
 
 class MergeSort {
 
-    public function foo(){
-        echo 'test';
+    public function merge_sort(array $mergeMe){
+
+
+
+        $merged = array();
+        return $merged;
     }
 
 } 
