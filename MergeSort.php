@@ -3,7 +3,6 @@
  * Created by PhpStorm.
  * User: jecnua
  * Date: 01/07/14
- * Time: 18:58
  */
 
 namespace algorithm;
