@@ -8,13 +8,13 @@
 
 include_once 'MergeSort.php';
 
-function fast(\algorithm\MergeSort $alg,$data){
-    $result = $alg->merge_sort($data);
+function tryMe(\algorithm\MergeSort $alg,$data){
+    $result = $alg->merge($data);
     print_r($result);
 }
 
 $alg = new \algorithm\MergeSort();
-fast($alg, [1,5,4,7,9,4]); //Even
-fast($alg, [6]); //One element
-fast($alg, [1,5,4,7,3,9,4]); //Odd
-fast($alg, array()); //Empty
+tryMe($alg, [1,5,4,7,9,4]); //Even
+tryMe($alg, [6]); //One element
+tryMe($alg, [1,5,4,7,3,9,4]); //Odd
+tryMe($alg, array()); //Empty
