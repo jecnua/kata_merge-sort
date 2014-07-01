@@ -19,11 +19,11 @@ class MergeSort {
         while (count($container) > 1){
             $sorted = array(); //reset each cycle
             for ($i = 0; $i < count($container); $i+=2){
-                if (!isset($container[$i+1])) {
-                    $sorted[] = $this->merge_and_sort_two_arrays_already_sorted($container[$i],array());
+                if (isset($container[$i+1])) {
+                    $sorted[] = $this->merge_and_sort_two_arrays_already_sorted($container[$i],$container[$i+1]);
                 }
                 else {
-                    $sorted[] = $this->merge_and_sort_two_arrays_already_sorted($container[$i],$container[$i+1]);
+                    $sorted[] = $container[$i];
                 }
             }
             $container = $sorted;
