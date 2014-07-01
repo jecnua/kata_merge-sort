@@ -17,11 +17,11 @@ class MergeSort {
         }
         //Split
         //Merge
-        $sorted = $this->merge_two_arrays(array(3,9),array(6,1));
+        $sorted = $this->merge_two_arrays_already_sorted(array(3,9),array(1,6));
         return $sorted;
     }
 
-    public function merge_two_arrays($first, $second){
+    public function merge_two_arrays_already_sorted($first, $second){
         $result = array();
         while (count ($first) != 0 && count ($second) != 0){
             if ($first[0] <= $second[0]){
@@ -33,7 +33,10 @@ class MergeSort {
                 array_shift($second);
             }
         }
-        return $result;
+        if (count ($first) == 0){
+            return array_merge($result, $second);
+        }
+        return array_merge($result, $first);
     }
 
 } 
