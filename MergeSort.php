@@ -15,19 +15,35 @@ class MergeSort {
         if (count($arrayToSort) <= 1) {
             return $arrayToSort;
         }
-        //Split
         $allElementInArrayOfOne = array_chunk($arrayToSort, 1);
-        $numElement = count($allElementInArrayOfOne);
-        for ($i = 0; $i < count($allElementInArrayOfOne); $i=$i+2){
-            $sorted = $this->merge_two_arrays_already_sorted($allElementInArrayOfOne[$i],$allElementInArrayOfOne[$i+1]);
-            print_r($sorted);
+        while (count($allElementInArrayOfOne) > 1){
+            $sorted = array();
+            if (count($allElementInArrayOfOne) % 2 == 0 ){
+                for ($i = 0; $i < count($allElementInArrayOfOne); $i=$i+2){
+                    $sorted[] = $this->merge_two_arrays_already_sorted($allElementInArrayOfOne[$i],$allElementInArrayOfOne[$i+1]);
+                    //print_r($sorted);
+                }
+            }
+            else {
+
+                for ($i = 0; $i < count($allElementInArrayOfOne); $i=$i+2){
+                    if (++$i >= count($allElementInArrayOfOne)) {
+                        $sorted[] = $this->merge_two_arrays_already_sorted($allElementInArrayOfOne[$i],array());
+                    }
+                    else{
+                        $sorted[] = $this->merge_two_arrays_already_sorted($allElementInArrayOfOne[$i],$allElementInArrayOfOne[$i+1]);
+                    }
+                }
+            }
+            $allElementInArrayOfOne = $sorted;
         }
-        //Merge
-        $sorted = $this->merge_two_arrays_already_sorted(array(3,9),array(1,6));
-        return $sorted;
+        return $allElementInArrayOfOne;
     }
 
-    public function merge_two_arrays_already_sorted($first, $second){
+    public function merge_two_arrays_already_sorted(array $first, array $second){
+        if (empty($second)){
+            return $first;
+        }
         $result = array();
         while (count ($first) != 0 && count ($second) != 0){
             if ($first[0] <= $second[0]){
