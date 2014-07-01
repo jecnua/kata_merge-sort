@@ -10,7 +10,7 @@ include_once 'MergeSort.php';
 
 function fast(\algorithm\MergeSort $alg,$data){
     $result = $alg->merge_sort($data);
-    print_r($result);
+    //print_r($result);
 }
 
 $alg = new \algorithm\MergeSort();

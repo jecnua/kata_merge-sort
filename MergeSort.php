@@ -16,6 +16,12 @@ class MergeSort {
             return $arrayToSort;
         }
         //Split
+        $allElementInArrayOfOne = array_chunk($arrayToSort, 1);
+        $numElement = count($allElementInArrayOfOne);
+        for ($i = 0; $i < count($allElementInArrayOfOne); $i=$i+2){
+            $sorted = $this->merge_two_arrays_already_sorted($allElementInArrayOfOne[$i],$allElementInArrayOfOne[$i+1]);
+            print_r($sorted);
+        }
         //Merge
         $sorted = $this->merge_two_arrays_already_sorted(array(3,9),array(1,6));
         return $sorted;
